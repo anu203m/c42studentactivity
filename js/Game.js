@@ -7,8 +7,8 @@ class Game {
 
     this.leader1 = createElement("h2");
     this.leader2 = createElement("h2");
-    this.playerMoving = false;
-    this.leftKeyActive = false;
+    //this.playerMoving = false;
+   // this.leftKeyActive = false;
   }
 
   getState() {
@@ -155,7 +155,7 @@ class Game {
 
           this.handleFuel(index);
           this.handlePowerCoins(index);
-          this.handleObstacleCollision(index);
+          //this.handleObstacleCollision(index);
 
           // Changing camera position in y direction
           camera.position.y = cars[index - 1].position.y;
@@ -197,7 +197,7 @@ class Game {
     });
   }
 
-  showLife() {
+ /* showLife() {
     push();
     image(lifeImage, width / 2 - 130, height - player.positionY - 400, 20, 20);
     fill("white");
@@ -206,7 +206,7 @@ class Game {
     rect(width / 2 - 100, height - player.positionY - 400, player.life, 20);
     noStroke();
     pop();
-  }
+  }*/
 
   showFuelBar() {
     push();
@@ -313,17 +313,7 @@ class Game {
   }
 
   handleObstacleCollision(index) {
-    if (cars[index - 1].collide(obstacles)) {
-      if (this.leftKeyActive) {
-        player.positionX += 100;
-      } else {
-        player.positionX -= 100;
-      }
-
-      //Reducing Player Life
-      if (player.life > 0) {
-        player.life -= 185 / 4;
-      }
+   //
 
       player.update();
     }
